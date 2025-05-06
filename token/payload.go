@@ -29,7 +29,7 @@ func NewPayload(username string, duration time.Duration) (*Payload, error){
 }
 
 func (payload *Payload) Valid() error{
-	if time.Now().After(payload.IssuedAt){
+	if time.Now().After(payload.ExpiredAt){
 		return fmt.Errorf("Token has expired.")
 	}
 
